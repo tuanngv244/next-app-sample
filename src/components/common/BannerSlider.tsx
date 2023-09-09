@@ -3,6 +3,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/core";
 import { Device, useDevice } from "@/hooks/useDevice";
+import Image from "next/image";
 
 type BannerSliderProps<T extends object = any> = {
   data: T[];
@@ -11,6 +12,7 @@ type BannerSliderProps<T extends object = any> = {
 export const BannerSlider: FC<BannerSliderProps> = ({ data }) => {
   const { device } = useDevice();
   return (
+    // @ts-ignore
     <Splide
       options={{
         type: "loop",
@@ -25,7 +27,7 @@ export const BannerSlider: FC<BannerSliderProps> = ({ data }) => {
     >
       {data?.map((entity, idx) => (
         <SplideSlide key={idx}>
-          <img
+          <Image
             src={entity?.image_url as string}
             className="w-full mobile:h-[50vh] tablet:h-[calc(100vh-12rem)] laptop_large:h-[calc(100vh-10rem)] "
             alt={entity?.label}

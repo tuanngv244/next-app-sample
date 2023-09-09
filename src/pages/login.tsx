@@ -1,3 +1,4 @@
+"use client";
 import { authApi } from "@/api-client";
 import { useAuth } from "@/hooks";
 import React from "react";
@@ -6,7 +7,7 @@ import { PATHNAME } from "@/configs";
 
 type Props = {};
 
-const login = (props: Props) => {
+const Login = (props: Props) => {
   const { profile, login, logout } = useAuth({ revalidateOnMount: false });
   const router = useRouter();
   const handleLogin = async () => {
@@ -33,4 +34,4 @@ const login = (props: Props) => {
   );
 };
 
-export default login;
+export default Login;
