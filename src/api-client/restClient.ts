@@ -16,4 +16,6 @@ restClient.interceptors.response.use(
   }
 );
 
+export type RestClient = typeof restClient;
+
 export default restClient;

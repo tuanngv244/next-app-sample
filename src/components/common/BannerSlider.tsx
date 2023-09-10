@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "@splidejs/react-splide/css/core";
-import { Device, useDevice } from "@/hooks/useDevice";
+import { EDevice, useDevice } from "@/hooks/useDevice";
 import Image from "next/image";
 
 type BannerSliderProps<T extends object = any> = {
@@ -16,8 +16,8 @@ export const BannerSlider: FC<BannerSliderProps> = ({ data }) => {
     <Splide
       options={{
         type: "loop",
-        gap: device === Device.Mobile ? 0 : "5rem",
-        padding: device === Device.Mobile ? 0 : "15rem",
+        gap: device === EDevice.Mobile ? 0 : "5rem",
+        padding: device === EDevice.Mobile ? 0 : "15rem",
         autoplay: true,
         interval: 4000,
         pagination: false,

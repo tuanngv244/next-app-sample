@@ -39,6 +39,10 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
         <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,500&display=swap"
+          rel="stylesheet"
+        ></link>
         <meta name="emotion-insertion-point" content="" />
         {emotionStyleTags}
       </Head>

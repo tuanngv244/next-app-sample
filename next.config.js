@@ -1,5 +1,19 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const runtimeCaching = require("next-pwa/cache");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+});
+const nextConfig = withPWA({
+  // pwa: {
+  //   dest: "public",
+  //   register: true,
+  //   skipWaiting: true,
+  //   runtimeCaching,
+  // },
   reactStrictMode: true,
   webpack(config) {
     config.module.rules.push({
@@ -19,6 +33,6 @@ const nextConfig = {
       },
     ],
   },
-};
+});
 
 module.exports = nextConfig;

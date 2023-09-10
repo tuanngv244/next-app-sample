@@ -3,16 +3,31 @@ import React, { FC } from "react";
 import Link from "next/link";
 import { PATHNAME } from "@/configs";
 import AuthContainer from "./AuthContainer";
+import { Stack, Box, Container } from "@mui/material";
+import { Header, Footer } from "@/components/common";
 
 const MainLayout = ({ children }: LayoutProps) => {
   return (
-    <AuthContainer>
-      <div className="p-[20px] flex flex-col gap-[20px]">
-        <Link href={PATHNAME.HOME}>Home</Link>
-        <Link href={PATHNAME.POSTS}>Posts</Link>
-        <div className="px-[50px]">{children}</div>
-      </div>
-    </AuthContainer>
+    // <AuthContainer>
+    <Stack
+      sx={{
+        minHeight: "100vh",
+      }}
+    >
+      <Header />
+      <Container>
+        <Box
+          sx={{
+            padding: 2,
+            flexGrow: 1,
+          }}
+        >
+          Container
+        </Box>
+      </Container>
+      <Footer />
+    </Stack>
+    // </AuthContainer>
   );
 };
 

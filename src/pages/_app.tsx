@@ -1,4 +1,4 @@
-import restClient from "@/api-client/restClient";
+import restClient, { RestClient } from "@/api-client/restClient";
 import EmptyLayout from "@/components/layout/empty";
 import { AppRootProps } from "@/models";
 import "@/styles/globals.css";
@@ -13,6 +13,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 import { theme, createEmotionCache } from "@/utils";
+import { AxiosInstance } from "axios";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -45,7 +46,17 @@ export default function App({
         <CssBaseline />
         <SWRConfig
           value={{
-            fetcher: (url) => restClient.get(url),
+            fetcher: (
+              url: string,
+              method?:
+                | AxiosInstance["get"]
+                | AxiosInstance["post"]
+                | AxiosInstance["put"]
+                | AxiosInstance["patch"]
+                | AxiosInstance["delete"]
+            ) => {
+              return restClient.get(url);
+            },
             shouldRetryOnError: false,
           }}
         >

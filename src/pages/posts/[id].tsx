@@ -38,7 +38,6 @@ export const getStaticProps: GetStaticProps<PostDetailPageProps> = async (
   context: GetStaticPropsContext
 ) => {
   const postId = context?.params?.id;
-  console.log(context, postId);
   if (!postId) return { notFound: true };
   const res = await fetch(
     `https://js-post-api.herokuapp.com/api/posts/${postId}`

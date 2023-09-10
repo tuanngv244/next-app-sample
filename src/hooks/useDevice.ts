@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export enum Device {
+export enum EDevice {
   Mobile = "MOBILE",
   Tablet = "TABLET",
   Laptop = "LAPTOP",
@@ -10,11 +10,11 @@ export enum Device {
 export const useDevice = () => {
   const [screenW, setScreenW] = useState<number>();
   const device = () => {
-    if (!screenW) return Device.Mobile;
-    if (screenW <= 768) return Device.Mobile;
-    if (768 < screenW && screenW <= 992) return Device.Tablet;
-    if (992 < screenW && screenW <= 1366) return Device.Laptop;
-    if (1366 < screenW) return Device.LaptopLarge;
+    if (!screenW) return EDevice.Mobile;
+    if (screenW <= 768) return EDevice.Mobile;
+    if (768 < screenW && screenW <= 992) return EDevice.Tablet;
+    if (992 < screenW && screenW <= 1366) return EDevice.Laptop;
+    if (1366 < screenW) return EDevice.LaptopLarge;
   };
 
   useEffect(() => {
